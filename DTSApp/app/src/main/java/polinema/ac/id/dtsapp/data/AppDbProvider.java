@@ -5,16 +5,16 @@ import android.content.Context;
 
 public class AppDbProvider
 {
-    private static DTSAppDatabase instance;
+    private static DTSAppDatabase asynchronousInstance;
 
-    public static DTSAppDatabase getInstance(Context context)
+    public static DTSAppDatabase getAsynchronousInstance(Context context)
     {
-        if(AppDbProvider.instance == null)
+        if(AppDbProvider.asynchronousInstance == null)
         {
-            AppDbProvider.instance = Room.databaseBuilder(
+            AppDbProvider.asynchronousInstance = Room.databaseBuilder(
                     context, DTSAppDatabase.class, "dtsapp.db").allowMainThreadQueries().build();
         }
 
-        return AppDbProvider.instance;
+        return AppDbProvider.asynchronousInstance;
     }
 }

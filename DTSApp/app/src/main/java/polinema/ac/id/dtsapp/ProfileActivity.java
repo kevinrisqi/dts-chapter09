@@ -35,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity
 
     private void loadData()
     {
-        UserDao daoUser = AppDbProvider.getInstance(this).userDao();
+        UserDao daoUser = AppDbProvider.getAsynchronousInstance(this).userDao();
 
         this.currentUser = daoUser.selectOne();
     }
@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity
     {
         this.syncData();
 
-        UserDao daoUser = AppDbProvider.getInstance(this).userDao();
+        UserDao daoUser = AppDbProvider.getAsynchronousInstance(this).userDao();
 
         daoUser.update(this.currentUser);
 
@@ -80,7 +80,7 @@ public class ProfileActivity extends AppCompatActivity
     {
         this.syncData();
 
-        UserDao daoUser = AppDbProvider.getInstance(this).userDao();
+        UserDao daoUser = AppDbProvider.getAsynchronousInstance(this).userDao();
 
         daoUser.delete(this.currentUser);
 

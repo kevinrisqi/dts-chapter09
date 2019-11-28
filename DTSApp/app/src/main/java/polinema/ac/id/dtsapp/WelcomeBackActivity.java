@@ -153,7 +153,7 @@ public class WelcomeBackActivity extends AppCompatActivity {
         String currentUsername = this.edtUsername.getText().toString();
         String currentPassword = this.edtPassword.getText().toString();
 
-        UserDao daoUser = AppDbProvider.getInstance(this).userDao();
+        UserDao daoUser = AppDbProvider.getAsynchronousInstance(this).userDao();
         this.loginUser = daoUser.findByUsernameAndPassword(currentUsername, currentPassword);
 
 //        return (Objects.equals(currentUsername,DUMMY_USERNAME) && (Objects.equals(currentPassword,DUMMY_PASSWORD)));
